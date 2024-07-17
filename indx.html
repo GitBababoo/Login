@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>เข้าสู่ระบบ</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7prGFyHzM0j+O949UNzxlHzMomfCc2cq7rarmV0cL1Tucx+3hvuC7VkG/eB49gTr35MmJVU3Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="container">
@@ -12,42 +13,38 @@
             <h1 class="title">เข้าสู่ระบบ</h1>
 
             <form class="login-form" id="loginForm">
-                <fieldset>
-                    <legend>ข้อมูลเข้าสู่ระบบ</legend>
-                    <div class="input-group">
-                        <label for="username" class="sr-only">ชื่อผู้ใช้:</label>
-                        <i class="fas fa-user"></i>
-                        <input type="text" id="username" name="username" placeholder="ชื่อผู้ใช้" required>
-                    </div>
-                    <div class="input-group">
-                        <label for="password" class="sr-only">รหัสผ่าน:</label>
-                        <i class="fas fa-lock"></i>
-                        <input type="password" id="password" name="password" placeholder="รหัสผ่าน" required>
-                        <i class="fas fa-eye" id="show-password"></i>
-                    </div>
-                    <button type="submit" class="btn">เข้าสู่ระบบ</button>
-                </fieldset>
-                <p class="forgot-password">ลืมรหัสผ่าน?</p>
+                <div class="input-group">
+                    <label for="username">ชื่อผู้ใช้:</label>
+                    <input type="text" id="username" name="username" placeholder="ชื่อผู้ใช้" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">รหัสผ่าน:</label>
+                    <input type="password" id="password" name="password" placeholder="รหัสผ่าน" required>
+                    <i class="fas fa-eye" id="show-password"></i>
+                </div>
+                <button type="submit" class="btn">เข้าสู่ระบบ</button>
             </form>
 
-
+            <div class="options">
+                <a href="#">ลืมรหัสผ่าน?</a>
+                <a href="#">สมัครสมาชิก</a>
+            </div>
 
             <div class="social-login">
                 <button class="social-btn facebook"><i class="fab fa-facebook-f"></i> Facebook</button>
                 <button class="social-btn google"><i class="fab fa-google"></i> Google</button>
             </div>
         </div>
+
         <div class="bg-circles">
             <div class="circle"></div>
             <div class="circle"></div>
             <div class="circle"></div>
             <div class="circle"></div>
             <div class="circle"></div>
-
         </div>
     </div>
 
     <script src="script.js"></script>
-    <script src="https://kit.fontawesome.com/your-fontawesome-kit-id.js" crossorigin="anonymous"></script>
 </body>
 </html>
