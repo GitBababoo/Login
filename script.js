@@ -1,6 +1,6 @@
+// Show/Hide Password
 const showPasswordIcon = document.getElementById('show-password');
 const passwordInput = document.getElementById('password');
-const errorMessage = document.querySelector('.error-message'); // เลือก error message
 
 showPasswordIcon.addEventListener('click', () => {
   if (passwordInput.type === 'password') {
@@ -14,45 +14,49 @@ showPasswordIcon.addEventListener('click', () => {
   }
 });
 
-const form = document.getElementById('loginForm');
+// Form Submission (Login)
+const loginForm = document.getElementById('loginForm');
 
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
+loginForm.addEventListener('submit', (event) => {
+  event.preventDefault(); // ป้องกันการส่งแบบฟอร์มปกติ
 
-  // ทำการ validate ข้อมูล
   const username = document.getElementById('username').value;
   const password = document.getElementById('password').value;
 
-  if (username.trim() === '' || password.trim() === '') {
-    // แสดง error message ใน input fields
-    document.getElementById('username').classList.add('error');
-    document.getElementById('password').classList.add('error');
-    errorMessage.textContent = 'กรุณากรอกชื่อผู้ใช้และรหัสผ่าน'; // แสดง error message
-    errorMessage.style.display = 'block'; // แสดง error message
-    return;
+  // ตรวจสอบข้อมูลการเข้าสู่ระบบ (ตัวอย่าง)
+  if (username === 'your_username' && password === 'your_password') {
+    alert('เข้าสู่ระบบสำเร็จ!');
+    // เปลี่ยนเส้นทางไปยังหน้าอื่น หรือทำสิ่งที่ต้องการ
+  } else {
+    alert('ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง');
   }
+});
 
-  // แสดง loading animation
-  const btn = event.target.querySelector('.btn');
-  btn.disabled = true;
-  btn.textContent = 'กำลังดำเนินการ...';
-  btn.classList.add('loading');
+// Signup Link
+const signupLink = document.getElementById('signupLink');
 
-  // หลังจากดำเนินการเสร็จแล้ว (ส่งข้อมูลไปยัง server)
-  setTimeout(() => {
-    btn.disabled = false;
-    btn.textContent = 'เข้าสู่ระบบ';
-    btn.classList.remove('loading');
+signupLink.addEventListener('click', (event) => {
+  event.preventDefault();
 
-    // แสดงผลลัพธ์จาก server
-    if (// ตรวจสอบผลลัพธ์) {
-      alert('ล็อกอินสำเร็จ');
-      // redirect ไปยังหน้าหลัก
-    } else {
-      // แสดง error message
-      errorMessage.textContent = 'ล็อกอินล้มเหลว';
-      errorMessage.style.display = 'block';
-    }
-  }, 2000);
-
+  // สร้างฟอร์มสมัครสมาชิก (ตัวอย่าง)
+  loginForm.innerHTML = `
+    <fieldset>
+        <legend>สมัครสมาชิก</legend>
+        <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text" id="newUsername" name="newUsername" placeholder="ชื่อผู้ใช้" required>
+        </div>
+        <div class="input-group">
+            <i class="fas fa-envelope"></i>
+            <input type="email" id="email" name="email" placeholder="อีเมล" required>
+        </div>
+        <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="newPassword" name="newPassword" placeholder="รหัสผ่าน" required>
+        </div>
+        <button type="submit" class="btn">สมัครสมาชิก</button>
+    </fieldset>
+    
+    
+  `;
 });
